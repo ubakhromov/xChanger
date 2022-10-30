@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xChanger.Core.POC", "xChanger.Core.POC\xChanger.Core.POC.csproj", "{91B3D2FB-D736-4D95-82F2-FC82EDFBF02F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xChanger.Api.Infrasturcture.Build", "xChanger.Api.Infrasturcture.Build\xChanger.Api.Infrasturcture.Build.csproj", "{6D1831A7-53F4-45F4-89D5-F84012EAF6DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{91B3D2FB-D736-4D95-82F2-FC82EDFBF02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B3D2FB-D736-4D95-82F2-FC82EDFBF02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B3D2FB-D736-4D95-82F2-FC82EDFBF02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1831A7-53F4-45F4-89D5-F84012EAF6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1831A7-53F4-45F4-89D5-F84012EAF6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1831A7-53F4-45F4-89D5-F84012EAF6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1831A7-53F4-45F4-89D5-F84012EAF6DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
