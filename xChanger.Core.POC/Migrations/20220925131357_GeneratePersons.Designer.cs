@@ -60,14 +60,14 @@ namespace xChanger.Core.POC.Migrations
                     b.ToTable("Pets");
                 });
 
-            modelBuilder.Entity("xChanger.Core.POC.Models.Pets.Pet", b =>
+            modelBuilder.Entity("xChanger.Core.Models.Pets.Pet", b =>
                 {
-                    b.HasOne("xChanger.Core.POC.Models.Persons.Person", null)
+                    b.HasOne("xChanger.Core.Models.Persons.Person", null)
                         .WithMany("Pets")
                         .HasForeignKey("PersonId");
                 });
 
-            modelBuilder.Entity("xChanger.Core.POC.Models.Persons.Person", b =>
+            modelBuilder.Entity("xChanger.Core.Models.Persons.Person", b =>
                 {
                     b.Navigation("Pets");
                 });

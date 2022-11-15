@@ -19,7 +19,7 @@ namespace xChanger.Core.POC.Brokers.Sheets
 
             using var excelPackage =
                 new ExcelPackage(file);
-
+             
             ExcelWorksheet workSheet =
                 excelPackage.Workbook.Worksheets[PositionID: 0];
 
