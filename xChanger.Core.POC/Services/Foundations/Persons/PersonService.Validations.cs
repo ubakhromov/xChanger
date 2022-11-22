@@ -31,13 +31,7 @@ namespace xChanger.Core.Services.Foundations.Persons
             Condition = id == Guid.Empty,
             Message = "Id is required"
         };
-
-        private static dynamic IsInvalid(DateTimeOffset date) => new
-        {
-            Condition = date == default,
-            Message = "Date is required"
-        };
-
+        
         private static dynamic IsInvalid(string text) => new
         {
             Condition = String.IsNullOrWhiteSpace(text),
