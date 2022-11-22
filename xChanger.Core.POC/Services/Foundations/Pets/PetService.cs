@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Brokers.Storages;
-using xChanger.Core.POC.Models.Foundations.Pets;
+using xChanger.Core.Brokers.Storages;
+using xChanger.Core.Models.Foundations.Pets;
+using xChanger.Core.Services.Foundations.Pets;
 
-namespace xChanger.Core.POC.Services.Foundations.Pets
+namespace xChanger.Core.Services.Foundations.Pets
 {
     public class PetService : IPetService
     {

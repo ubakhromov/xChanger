@@ -1,10 +1,10 @@
 ﻿using Moq;
 using System.Text.RegularExpressions;
 using Tynamix.ObjectFiller;
-using xChanger.Core.POC.Brokers.Sheets;
-using xChanger.Core.POC.Brokers.Storages;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
-using xChanger.Core.POC.Services.Foundations.ExternalPersons;
+using xChanger.Core.Brokers.Sheets;
+using xChanger.Core.Brokers.Storages;
+using xChanger.Core.Models.Foundations.ExternalPersons;
+using xChanger.Core.Services.Foundations.ExternalPersons;
 using Xunit.Abstractions;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.ExternalPersons

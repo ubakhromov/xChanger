@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using xChanger.Core.POC.Models.Foundations.Persons;
-using xChanger.Core.POC.Models.Foundations.Pets;
+using xChanger.Core.Models.Foundations.Persons;
+using xChanger.Core.Models.Foundations.Pets;
 
-namespace xChanger.Core.POC.Models.Orchestrations.PersonPets
+namespace xChanger.Core.Models.Orchestrations.PersonPets
 {
     public class PersonPet
     {

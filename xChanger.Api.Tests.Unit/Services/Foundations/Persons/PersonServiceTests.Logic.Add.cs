@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using Force.DeepCloner;
 using Moq;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
-using xChanger.Core.POC.Models.Foundations.Persons;
+using xChanger.Core.Models.Foundations.ExternalPersons;
+using xChanger.Core.Models.Foundations.Persons;
 using Xunit;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
@@ -34,6 +34,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                     Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace xChanger.Core.POC.Migrations
+namespace xChanger.Core.Migrations
 {
     public partial class GeneratePets : Migration
     {

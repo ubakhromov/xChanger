@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RESTFulSense.Controllers;
-using xChanger.Core.POC.Models.Orchestrations.PersonPets;
-using xChanger.Core.POC.Services.Coordinations;
-using xChanger.Core.POC.Services.Foundations.Persons;
+using xChanger.Core.Models.Orchestrations.PersonPets;
+using xChanger.Core.Services.Coordinations;
+using xChanger.Core.Services.Foundations.Persons;
 
 namespace xChanger.Core.POC.Controllers
 {

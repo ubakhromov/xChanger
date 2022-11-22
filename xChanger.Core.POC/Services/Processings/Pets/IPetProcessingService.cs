@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Foundations.Pets;
+using xChanger.Core.Models.Foundations.Pets;
 
-namespace xChanger.Core.POC.Services.Processings.Pets
+namespace xChanger.Core.Services.Processings.Pets
 {
     public interface IPetProcessingService
     {

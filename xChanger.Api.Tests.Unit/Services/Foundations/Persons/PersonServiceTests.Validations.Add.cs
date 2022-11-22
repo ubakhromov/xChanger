@@ -1,12 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using xChanger.Core.Models.Foundations.Persons.Exceptions;
-using xChanger.Core.POC.Models.Foundations.Persons;
+using xChanger.Core.Models.Foundations.Persons;
 using Xunit;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons

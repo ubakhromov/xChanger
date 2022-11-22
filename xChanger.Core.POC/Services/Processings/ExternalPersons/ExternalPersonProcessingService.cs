@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
-using xChanger.Core.POC.Services.Foundations.ExternalPersons;
+using xChanger.Core.Models.Foundations.ExternalPersons;
+using xChanger.Core.Services.Foundations.ExternalPersons;
 
-namespace xChanger.Core.POC.Services.Processings.ExternalPersons
+namespace xChanger.Core.Services.Processings.ExternalPersons
 {
     public class ExternalPersonProcessingService : IExternalPersonProcessingService
     {

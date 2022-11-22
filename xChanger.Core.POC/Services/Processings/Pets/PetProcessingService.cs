@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Foundations.Pets;
-using xChanger.Core.POC.Services.Foundations.Pets;
+using xChanger.Core.Models.Foundations.Pets;
+using xChanger.Core.Services.Foundations.Pets;
 
-namespace xChanger.Core.POC.Services.Processings.Pets
+namespace xChanger.Core.Services.Processings.Pets
 {
     public class PetProcessingService : IPetProcessingService
     {

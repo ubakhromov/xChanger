@@ -4,19 +4,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using xChanger.Core.POC.Brokers.Sheets;
-using xChanger.Core.POC.Brokers.Storages;
-using xChanger.Core.POC.Services.Coordinations;
-using xChanger.Core.POC.Services.Foundations.ExternalPersons;
-using xChanger.Core.POC.Services.Foundations.Persons;
-using xChanger.Core.POC.Services.Foundations.Pets;
-using xChanger.Core.POC.Services.Orchestrations.ExternalPersons;
-using xChanger.Core.POC.Services.Orchestrations.PersonPets;
-using xChanger.Core.POC.Services.Processings.ExternalPersons;
-using xChanger.Core.POC.Services.Processings.Persons;
-using xChanger.Core.POC.Services.Processings.Pets;
+using xChanger.Core.Brokers.Sheets;
+using xChanger.Core.Brokers.Storages;
+using xChanger.Core.Services.Coordinations;
+using xChanger.Core.Services.Foundations.ExternalPersons;
+using xChanger.Core.Services.Foundations.Persons;
+using xChanger.Core.Services.Foundations.Pets;
+using xChanger.Core.Services.Orchestrations.ExternalPersons;
+using xChanger.Core.Services.Orchestrations.PersonPets;
+using xChanger.Core.Services.Processings.ExternalPersons;
+using xChanger.Core.Services.Processings.Persons;
+using xChanger.Core.Services.Processings.Pets;
 
-namespace xChanger.Core.POC
+namespace xChanger.Core
 {
     public class Startup
     {

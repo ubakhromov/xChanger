@@ -1,11 +1,10 @@
 ﻿using Moq;
 using System.Linq.Expressions;
 using Tynamix.ObjectFiller;
-using xChanger.Core.POC.Brokers.Loggings;
-using xChanger.Core.POC.Brokers.Storages;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
-using xChanger.Core.POC.Models.Foundations.Persons;
-using xChanger.Core.POC.Services.Foundations.Persons;
+using xChanger.Core.Brokers.Loggings;
+using xChanger.Core.Brokers.Storages;
+using xChanger.Core.Models.Foundations.Persons;
+using xChanger.Core.Services.Foundations.Persons;
 using Xeptions;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons

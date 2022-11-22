@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Force.DeepCloner;
 using Moq;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
+using xChanger.Core.Models.Foundations.ExternalPersons;
 using Xunit;
 using Xunit.Abstractions;
 

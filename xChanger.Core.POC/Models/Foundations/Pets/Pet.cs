@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xChanger.Core.POC.Models.Foundations.Pets
+namespace xChanger.Core.Models.Foundations.Pets
 {
     public class Pet
     {

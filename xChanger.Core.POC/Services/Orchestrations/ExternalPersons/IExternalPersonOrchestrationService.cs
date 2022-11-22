@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
+using xChanger.Core.Models.Foundations.ExternalPersons;
 
-namespace xChanger.Core.POC.Services.Orchestrations.ExternalPersons
+namespace xChanger.Core.Services.Orchestrations.ExternalPersons
 {
     public interface IExternalPersonOrchestrationService
     {
