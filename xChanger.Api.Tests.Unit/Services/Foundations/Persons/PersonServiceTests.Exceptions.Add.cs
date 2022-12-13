@@ -4,6 +4,7 @@ using Xunit;
 using xChanger.Core.Models.Foundations.Persons;
 using xChanger.Core.Models.Foundations.Persons.Exceptions;
 using EFxceptions.Models.Exceptions;
+using Xunit.Abstractions;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 {
@@ -87,5 +88,42 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
             this.storageBrokerMock.VerifyNoOtherCalls();
         }
 
+        [Fact]
+        public async Task ShouldThrowServiceExceptionOnAddIfServiceErrorOccursAndLogItAsync()
+        {
+            //given
+            Person somePerson = CreateRandomPerson();
+            var serviceException = new Exception();
+
+            var failedPersonServiceException =
+                new FailedPersonServiceException(serviceException);
+
+            var expectedPersonServiceException =
+                new PersonServiceException(failedPersonServiceException);
+
+            this.storageBrokerMock.Setup(broker =>
+                broker.SelectPersonAsync(somePerson))
+                    .ThrowsAsync(serviceException);
+
+            //when
+            ValueTask<Person> addPersonTask =
+                this.personService.AddPersonAsync(somePerson);
+
+            //then
+            await Assert.ThrowsAsync<PersonServiceException>(() =>
+                addPersonTask.AsTask());
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.SelectPersonAsync(somePerson),
+                    Times.Once);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedPersonServiceException))),
+                        Times.Once);
+
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
