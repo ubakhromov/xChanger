@@ -19,7 +19,11 @@ namespace xChanger.Core.Services.Foundations.Persons
             catch (NullPersonException nullPersonException)
             {
                 throw CreateAndLogValidationException(nullPersonException);
-            }            
+            }
+            catch (InvalidPersonException invalidPersonException)
+            {
+                throw CreateAndLogValidationException(invalidPersonException);
+            }
         }
 
         private PersonValidationException CreateAndLogValidationException(Xeption exception)
