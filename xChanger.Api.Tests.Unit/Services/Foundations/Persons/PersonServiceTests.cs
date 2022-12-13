@@ -8,6 +8,7 @@ using xChanger.Core.Brokers.Storages;
 using xChanger.Core.Models.Foundations.Persons;
 using xChanger.Core.Services.Foundations.Persons;
 using Xeptions;
+using Xunit.Abstractions;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 {
@@ -29,6 +30,13 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 
         private static Person CreateRandomPerson() =>
          CreatePersonFiller(date: GetRandomDateTimeOffset()).Create();
+
+        private static IQueryable<Person> CreatedRandomPersons()
+        {
+            return CreatePersonFiller(date: GetRandomDateTimeOffset())
+                .Create(count: GetRandomNumber())
+                    .AsQueryable();
+        }
 
         private static DateTimeOffset GetRandomDateTimeOffset() =>
            new DateTimeRange(earliestDate: new DateTime()).GetValue();

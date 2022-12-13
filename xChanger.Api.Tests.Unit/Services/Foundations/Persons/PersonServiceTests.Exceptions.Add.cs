@@ -4,7 +4,6 @@ using Xunit;
 using xChanger.Core.Models.Foundations.Persons;
 using xChanger.Core.Models.Foundations.Persons.Exceptions;
 using EFxceptions.Models.Exceptions;
-using Xunit.Abstractions;
 
 namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 {
@@ -22,7 +21,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 new PersonDependencyException(failedPersonStorageException);
 
             this.storageBrokerMock.Setup(broker =>
-                broker.SelectPersonAsync(somePerson))
+                broker.InsertPersonAsync(somePerson))
                     .ThrowsAsync(sqlException);
 
             //when
@@ -34,7 +33,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 addPersonTask.AsTask());
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectPersonAsync(somePerson),
+                broker.InsertPersonAsync(somePerson),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -64,7 +63,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 
 
             this.storageBrokerMock.Setup(broker =>
-                broker.SelectPersonAsync(somePerson))
+                broker.InsertPersonAsync(somePerson))
                     .ThrowsAsync(duplicateKeyException);
 
             //when 
@@ -76,7 +75,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 addGuestTask.AsTask());
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectPersonAsync(somePerson),
+                broker.InsertPersonAsync(somePerson),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
@@ -102,7 +101,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 new PersonServiceException(failedPersonServiceException);
 
             this.storageBrokerMock.Setup(broker =>
-                broker.SelectPersonAsync(somePerson))
+                broker.InsertPersonAsync(somePerson))
                     .ThrowsAsync(serviceException);
 
             //when
@@ -114,7 +113,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 addPersonTask.AsTask());
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectPersonAsync(somePerson),
+                broker.InsertPersonAsync(somePerson),
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>

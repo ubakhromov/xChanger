@@ -24,7 +24,7 @@ namespace xChanger.Core.Services.Foundations.Persons
         TryCatch(async () =>
         {
             ValidatePersonOnAdd(person);
-            return await this.storageBroker.SelectPersonAsync(person);
+            return await this.storageBroker.InsertPersonAsync(person);
         });
 
         public IQueryable<Person> RetrieveAllPersons() =>

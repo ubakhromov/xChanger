@@ -39,7 +39,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                         Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectPersonAsync(invalidPerson),
+                broker.InsertPersonAsync(invalidPerson),
                     Times.Never);
             
             this.loggingBrokerMock.VerifyNoOtherCalls();
@@ -91,7 +91,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 
             this.storageBrokerMock.Verify(broker =>
 
-                broker.SelectPersonAsync(It.IsAny<Person>()),
+                broker.InsertPersonAsync(It.IsAny<Person>()),
                     Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();

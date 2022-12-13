@@ -80,10 +80,10 @@ namespace xChanger.Core.Services.Foundations.Persons
 
         private PersonServiceException CreateAndLogServiceException(Xeption exception)
         {
-            var personSetviceException = new PersonServiceException(exception);
-            this.loggingBroker.LogError(personSetviceException);
+            var personServiceException = new PersonServiceException(exception);
+            this.loggingBroker.LogError(personServiceException);
 
-            return personSetviceException;
+            return personServiceException;
         }
     }
 }
