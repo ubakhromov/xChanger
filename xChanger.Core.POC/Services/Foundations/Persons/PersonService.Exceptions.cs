@@ -4,6 +4,7 @@ using xChanger.Core.Models.Foundations.Persons;
 using Xeptions;
 using Microsoft.Data.SqlClient;
 using EFxceptions.Models.Exceptions;
+using System;
 
 namespace xChanger.Core.Services.Foundations.Persons
 {
@@ -40,6 +41,13 @@ namespace xChanger.Core.Services.Foundations.Persons
 
                 throw CreateAndLogDependencyValidationException(alreadyExistGuestException);
             }
+            catch (Exception exception)
+            {
+                var failedPersonServiceException =
+                    new FailedPersonServiceException(exception);
+
+                throw CreateAndLogServiceException(failedPersonServiceException);
+            }
         }
 
         private PersonValidationException CreateAndLogValidationException(Xeption exception)
@@ -68,6 +76,14 @@ namespace xChanger.Core.Services.Foundations.Persons
 
             return personDependencyValidationException;
 
+        }
+
+        private PersonServiceException CreateAndLogServiceException(Xeption exception)
+        {
+            var personSetviceException = new PersonServiceException(exception);
+            this.loggingBroker.LogError(personSetviceException);
+
+            return personSetviceException;
         }
     }
 }
