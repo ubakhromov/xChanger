@@ -7,6 +7,6 @@ namespace xChanger.Core.Models.Foundations.Persons.Exceptions
         public PersonValidationException(Xeption innerException)
             : base (message: "Profile validation errors occurred, please try again",
                   innerException)
-        { }        
+        {}        
     }
 }

@@ -13,7 +13,7 @@ namespace xChanger.Core.Services.Foundations.Persons
 
             Validate(
                 (Rule: IsInvalid(person.Id), Parameter: nameof(Person.Id)),
-                (Rule: IsInvalid(person.Name), Parameter: nameof(Person.Name)));              
+                (Rule: IsInvalid(person.Name), Parameter: nameof(Person.Name)));
         }
 
       
@@ -23,7 +23,6 @@ namespace xChanger.Core.Services.Foundations.Persons
             {
                 throw new NullPersonException();
             }
-            
         }
 
         private static dynamic IsInvalid(Guid id) => new
@@ -36,9 +35,7 @@ namespace xChanger.Core.Services.Foundations.Persons
         {
             Condition = String.IsNullOrWhiteSpace(text),
             Message = "Text is required"
-        };
-
-        
+        };        
 
         private static void Validate(params (dynamic Rule, string Parameter)[] validations)
         {

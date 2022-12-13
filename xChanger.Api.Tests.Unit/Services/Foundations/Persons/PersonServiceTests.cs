@@ -1,5 +1,7 @@
-﻿using Moq;
+﻿using Microsoft.Data.SqlClient;
+using Moq;
 using System.Linq.Expressions;
+using System.Runtime.Serialization;
 using Tynamix.ObjectFiller;
 using xChanger.Core.Brokers.Loggings;
 using xChanger.Core.Brokers.Storages;
@@ -33,6 +35,9 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 
         private static int GetRandomNumber() =>
             new IntRange(min: 2, max: 9).GetValue();
+
+        private static SqlException GetSqlError() =>
+           (SqlException)FormatterServices.GetUninitializedObject(typeof(SqlException));
 
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expedtedException) =>
             actualException => actualException.SameExceptionAs(expedtedException);

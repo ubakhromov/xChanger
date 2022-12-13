@@ -39,7 +39,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                         Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.AddPersonAsync(invalidPerson),
+                broker.SelectPersonAsync(invalidPerson),
                     Times.Never);
             
             this.loggingBrokerMock.VerifyNoOtherCalls();
@@ -68,7 +68,6 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
             invalidPersonException.AddData(
                 key: nameof(Person.Name),
                 values: "Text is required");
-                     
 
             var expectedPersonValidationException =
                 new PersonValidationException(invalidPersonException);
@@ -81,7 +80,6 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                 await Assert.ThrowsAsync<PersonValidationException>(() =>
                     addPersonTask.AsTask());
 
-
             //then
             actualPersonValidationException.Should().BeEquivalentTo(
                 expectedPersonValidationException);
@@ -92,12 +90,14 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
                         Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.AddPersonAsync(It.IsAny<Person>()),
+
+                broker.SelectPersonAsync(It.IsAny<Person>()),
                     Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
         }
+
 
     }
 }

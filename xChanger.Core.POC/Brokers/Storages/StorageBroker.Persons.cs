@@ -10,7 +10,7 @@ namespace xChanger.Core.Brokers.Storages
     {
         public DbSet<Person> Persons { get; set; }
 
-        public async ValueTask<Person> AddPersonAsync(Person person)
+        public async ValueTask<Person> SelectPersonAsync(Person person)
         {
             var broker = new StorageBroker(this.configuration);
 
