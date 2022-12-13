@@ -3,6 +3,7 @@ using xChanger.Core.Models.Foundations.Persons.Exceptions;
 using xChanger.Core.Models.Foundations.Persons;
 using Xeptions;
 using Microsoft.Data.SqlClient;
+using EFxceptions.Models.Exceptions;
 
 namespace xChanger.Core.Services.Foundations.Persons
 {
@@ -32,6 +33,13 @@ namespace xChanger.Core.Services.Foundations.Persons
 
                 throw CreateAndLogCriticalDependencyException(failedPersonStorageException);
             }
+            catch (DuplicateKeyException duplicateKeyException)
+            {
+                var alreadyExistGuestException =
+                    new AlreadyExistPersonException(duplicateKeyException);
+
+                throw CreateAndLogDependencyValidationException(alreadyExistGuestException);
+            }
         }
 
         private PersonValidationException CreateAndLogValidationException(Xeption exception)
@@ -50,6 +58,16 @@ namespace xChanger.Core.Services.Foundations.Persons
             this.loggingBroker.LogCritical(personDependencyException);
 
             return personDependencyException;
+        }
+
+        private PersonDependencyValidationException CreateAndLogDependencyValidationException(
+            Xeption exception)
+        {
+            var personDependencyValidationException = new PersonDependencyValidationException(exception);
+            this.loggingBroker.LogError(personDependencyValidationException);
+
+            return personDependencyValidationException;
+
         }
     }
 }
