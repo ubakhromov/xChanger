@@ -1,4 +1,4 @@
-﻿namespace xChanger.Core.POC.Brokers.Sheets
+﻿namespace xChanger.Core.Brokers.Sheets
 {
     public partial interface ISheetBroker
     { }

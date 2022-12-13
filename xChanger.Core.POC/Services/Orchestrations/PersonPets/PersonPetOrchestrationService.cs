@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Foundations.Persons;
-using xChanger.Core.POC.Models.Foundations.Pets;
-using xChanger.Core.POC.Models.Orchestrations.PersonPets;
-using xChanger.Core.POC.Services.Processings.Persons;
-using xChanger.Core.POC.Services.Processings.Pets;
+using xChanger.Core.Models.Foundations.Persons;
+using xChanger.Core.Models.Foundations.Pets;
+using xChanger.Core.Models.Orchestrations.PersonPets;
+using xChanger.Core.Services.Processings.Persons;
+using xChanger.Core.Services.Processings.Pets;
 
-namespace xChanger.Core.POC.Services.Orchestrations.PersonPets
+namespace xChanger.Core.Services.Orchestrations.PersonPets
 {
     public class PersonPetOrchestrationService : IPersonPetOrchestrationService
     {

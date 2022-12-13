@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using xChanger.Core.POC.Models.Foundations.Pets;
+using xChanger.Core.Models.Foundations.Pets;
 
-namespace xChanger.Core.POC.Brokers.Storages
+namespace xChanger.Core.Brokers.Storages
 {
     public partial class StorageBroker
     {

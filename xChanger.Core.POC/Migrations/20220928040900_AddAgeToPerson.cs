@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace xChanger.Core.POC.Migrations
+namespace xChanger.Core.Migrations
 {
     public partial class AddAgeToPerson : Migration
     {

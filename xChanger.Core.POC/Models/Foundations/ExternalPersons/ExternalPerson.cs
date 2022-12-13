@@ -1,4 +1,4 @@
-﻿namespace xChanger.Core.POC.Models.Foundations.ExternalPersons
+﻿namespace xChanger.Core.Models.Foundations.ExternalPersons
 {
     public class ExternalPerson
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Brokers.Sheets;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
+using xChanger.Core.Brokers.Sheets;
+using xChanger.Core.Models.Foundations.ExternalPersons;
 
-namespace xChanger.Core.POC.Services.Foundations.ExternalPersons
+namespace xChanger.Core.Services.Foundations.ExternalPersons
 {
     public class ExternalPersonService : IExternalPersonService
     {

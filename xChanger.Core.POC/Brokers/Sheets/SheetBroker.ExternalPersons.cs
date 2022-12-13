@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using OfficeOpenXml;
-using xChanger.Core.POC.Models.Foundations.ExternalPersons;
+using xChanger.Core.Models.Foundations.ExternalPersons;
 
-namespace xChanger.Core.POC.Brokers.Sheets
+namespace xChanger.Core.Brokers.Sheets
 {
     public partial class SheetBroker
     {
@@ -19,7 +19,7 @@ namespace xChanger.Core.POC.Brokers.Sheets
 
             using var excelPackage =
                 new ExcelPackage(file);
-
+             
             ExcelWorksheet workSheet =
                 excelPackage.Workbook.Worksheets[PositionID: 0];
 

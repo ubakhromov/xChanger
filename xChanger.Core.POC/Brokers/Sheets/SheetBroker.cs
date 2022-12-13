@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace xChanger.Core.POC.Brokers.Sheets
+namespace xChanger.Core.Brokers.Sheets
 {
     public partial class SheetBroker : ISheetBroker, IDisposable
     {

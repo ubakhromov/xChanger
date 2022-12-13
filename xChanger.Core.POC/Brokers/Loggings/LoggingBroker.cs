@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace xChanger.Core.POC.Brokers.Loggings
+namespace xChanger.Core.Brokers.Loggings
 {
     public class LoggingBroker
     {

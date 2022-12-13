@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using xChanger.Core.POC.Models.Foundations.Pets;
+using xChanger.Core.Models.Foundations.Pets;
 
-namespace xChanger.Core.POC.Models.Foundations.Persons
+namespace xChanger.Core.Models.Foundations.Persons
 {
     public class Person
     {

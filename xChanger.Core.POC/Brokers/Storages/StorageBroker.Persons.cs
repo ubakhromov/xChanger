@@ -2,15 +2,15 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using xChanger.Core.POC.Models.Foundations.Persons;
+using xChanger.Core.Models.Foundations.Persons;
 
-namespace xChanger.Core.POC.Brokers.Storages
+namespace xChanger.Core.Brokers.Storages
 {
     public partial class StorageBroker
     {
         public DbSet<Person> Persons { get; set; }
 
-        public async ValueTask<Person> AddPersonAsync(Person person)
+        public async ValueTask<Person> SelectPersonAsync(Person person)
         {
             var broker = new StorageBroker(this.configuration);
 

@@ -1,4 +1,4 @@
-﻿namespace xChanger.Core.POC.Models.Foundations.Pets
+﻿namespace xChanger.Core.Models.Foundations.Pets
 {
     public enum PetType
     {

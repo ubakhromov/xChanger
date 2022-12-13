@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using xChanger.Core.POC.Models.Orchestrations.PersonPets;
+using xChanger.Core.Models.Orchestrations.PersonPets;
 
-namespace xChanger.Core.POC.Services.Coordinations
+namespace xChanger.Core.Services.Coordinations
 {
     public interface IExternalPersonWithPetsCoordinationService
     {

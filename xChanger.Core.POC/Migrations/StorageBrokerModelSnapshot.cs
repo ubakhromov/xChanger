@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using xChanger.Core.POC.Brokers.Storages;
+using xChanger.Core.Brokers.Storages;
 
 #nullable disable
 
-namespace xChanger.Core.POC.Migrations
+namespace xChanger.Core.Migrations
 {
     [DbContext(typeof(StorageBroker))]
     partial class StorageBrokerModelSnapshot : ModelSnapshot

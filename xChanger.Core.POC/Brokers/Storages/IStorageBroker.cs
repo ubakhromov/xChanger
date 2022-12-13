@@ -1,4 +1,4 @@
-﻿namespace xChanger.Core.POC.Brokers.Storages
+﻿namespace xChanger.Core.Brokers.Storages
 {
     public partial interface IStorageBroker
     { }

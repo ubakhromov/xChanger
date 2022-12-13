@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xChanger.Core.POC.Brokers.Loggings
+namespace xChanger.Core.Brokers.Loggings
 {
     public interface ILoggingBroker
     {

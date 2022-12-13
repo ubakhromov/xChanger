@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace xChanger.Core.POC
+namespace xChanger.Core
 {
     public class Program
     {
