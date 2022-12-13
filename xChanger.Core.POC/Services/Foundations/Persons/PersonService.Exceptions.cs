@@ -2,6 +2,7 @@
 using xChanger.Core.Models.Foundations.Persons.Exceptions;
 using xChanger.Core.Models.Foundations.Persons;
 using Xeptions;
+using Microsoft.Data.SqlClient;
 
 namespace xChanger.Core.Services.Foundations.Persons
 {
@@ -24,6 +25,13 @@ namespace xChanger.Core.Services.Foundations.Persons
             {
                 throw CreateAndLogValidationException(invalidPersonException);
             }
+            catch (SqlException sqlException)
+            {
+                var failedPersonStorageException =
+                    new FailedPersonStorageException(sqlException);
+
+                throw CreateAndLogCriticalDependencyException(failedPersonStorageException);
+            }
         }
 
         private PersonValidationException CreateAndLogValidationException(Xeption exception)
@@ -34,6 +42,14 @@ namespace xChanger.Core.Services.Foundations.Persons
             this.loggingBroker.LogError(personValidationException);
 
             return personValidationException;
+        }
+
+        private PersonDependencyException CreateAndLogCriticalDependencyException(Xeption exception)
+        {
+            var personDependencyException = new PersonDependencyException(exception);
+            this.loggingBroker.LogCritical(personDependencyException);
+
+            return personDependencyException;
         }
     }
 }
