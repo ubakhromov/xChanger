@@ -47,6 +47,9 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
         private static string GetRandomString() =>
             new MnemonicString().GetValue();
 
+        private static string GetRandomMessage() =>
+            new MnemonicString(wordCount: GetRandomNumber()).GetValue();
+
         private static SqlException GetSqlError() =>
            (SqlException)FormatterServices.GetUninitializedObject(typeof(SqlException));
 

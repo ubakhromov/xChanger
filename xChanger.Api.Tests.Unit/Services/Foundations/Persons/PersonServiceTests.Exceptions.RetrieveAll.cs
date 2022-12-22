@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using FluentAssertions;
+using Microsoft.Data.SqlClient;
 using Moq;
 using xChanger.Core.Models.Foundations.Persons.Exceptions;
 using Xunit;
@@ -41,6 +42,48 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
 
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
+        }
+
+        [Fact]
+        public void ShouldThrowServiceExceptionOnRetrieveAllWhenAllServiceErrorOccursAndLogIt()
+        {
+            // given
+            string exceptionMessage = GetRandomMessage();
+            var serviceException = new Exception(exceptionMessage);
+
+            var failePersonServiceException =
+                new FailedPersonServiceException(serviceException);
+
+            var expectedPersonServiceException =
+                new PersonServiceException(failePersonServiceException);
+
+            this.storageBrokerMock.Setup(broker =>
+                broker.SelectAllPersons())
+                    .Throws(serviceException);
+
+            // when
+            Action retrieveAllPersonsAction = () =>
+                this.personService.RetrieveAllPersons();
+
+            PersonServiceException actualPersonServiceException =
+                Assert.Throws<PersonServiceException>(
+                    retrieveAllPersonsAction);
+
+            // then
+            actualPersonServiceException.Should().BeEquivalentTo(
+                expectedPersonServiceException);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.SelectAllPersons(),
+                    Times.Once);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedPersonServiceException))),
+                        Times.Once);
+
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();            
         }
     }
 }
