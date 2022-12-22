@@ -5,19 +5,21 @@ using Xeptions;
 using Microsoft.Data.SqlClient;
 using EFxceptions.Models.Exceptions;
 using System;
+using System.Linq;
 
 namespace xChanger.Core.Services.Foundations.Persons
 {
     public partial class PersonService
     {      
 
-        private delegate ValueTask<Person> ReturningGuestFunction();
+        private delegate ValueTask<Person> ReturningPersonFunction();
+        private delegate IQueryable<Person> ReturningPersonsFunction();
 
-        private async ValueTask<Person> TryCatch(ReturningGuestFunction returningGuestFunction)
+        private async ValueTask<Person> TryCatch(ReturningPersonFunction returningPersonFunction)
         {
             try
             {
-                return await returningGuestFunction();
+                return await returningPersonFunction();
             }
             catch (NullPersonException nullPersonException)
             {
@@ -47,6 +49,21 @@ namespace xChanger.Core.Services.Foundations.Persons
                     new FailedPersonServiceException(exception);
 
                 throw CreateAndLogServiceException(failedPersonServiceException);
+            }
+        }
+
+        private IQueryable<Person> TryCatch(ReturningPersonsFunction returningPersonsFunction)
+        {
+            try
+            {
+                return returningPersonsFunction();
+            }
+            catch (SqlException sqlException)
+            {
+                var failedPersonStorageException =
+                    new FailedPersonStorageException(sqlException);
+
+                throw CreateAndLogCriticalDependencyException(failedPersonStorageException);
             }
         }
 

@@ -28,7 +28,11 @@ namespace xChanger.Core.Services.Foundations.Persons
         });
 
         public IQueryable<Person> RetrieveAllPersons() =>
-            this.storageBroker.SelectAllPersons();
+        TryCatch(() =>
+        {
+            return this.storageBroker.SelectAllPersons();
+
+        });
 
         public IQueryable<Person> RetrieveAllPersonsWithPets() =>
             this.storageBroker.SelectAllPersonsWithPets();
