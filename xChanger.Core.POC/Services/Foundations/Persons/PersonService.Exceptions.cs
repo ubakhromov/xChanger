@@ -65,6 +65,13 @@ namespace xChanger.Core.Services.Foundations.Persons
 
                 throw CreateAndLogCriticalDependencyException(failedPersonStorageException);
             }
+            catch (Exception serviceException)
+            {
+                var failedPersonServiceException =
+                    new FailedPersonServiceException(serviceException);
+
+                throw CreateAndLogServiceException(failedPersonServiceException);
+            }
         }
 
         private PersonValidationException CreateAndLogValidationException(Xeption exception)
