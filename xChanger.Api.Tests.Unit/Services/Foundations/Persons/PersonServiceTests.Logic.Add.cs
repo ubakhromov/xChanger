@@ -19,7 +19,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
             Person expectedPerson = returningPerson.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
-                broker.SelectPersonAsync(inputPerson))
+                broker.InsertPersonAsync(inputPerson))
                     .ReturnsAsync(returningPerson);
 
             //when
@@ -30,7 +30,7 @@ namespace xChanger.Core.Tests.Unit.Services.Foundations.Persons
             actualPerson.Should().BeEquivalentTo(expectedPerson);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectPersonAsync(inputPerson),
+                broker.InsertPersonAsync(inputPerson),
                     Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();

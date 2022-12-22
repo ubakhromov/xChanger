@@ -5,19 +5,21 @@ using Xeptions;
 using Microsoft.Data.SqlClient;
 using EFxceptions.Models.Exceptions;
 using System;
+using System.Linq;
 
 namespace xChanger.Core.Services.Foundations.Persons
 {
     public partial class PersonService
     {      
 
-        private delegate ValueTask<Person> ReturningGuestFunction();
+        private delegate ValueTask<Person> ReturningPersonFunction();
+        private delegate IQueryable<Person> ReturningPersonsFunction();
 
-        private async ValueTask<Person> TryCatch(ReturningGuestFunction returningGuestFunction)
+        private async ValueTask<Person> TryCatch(ReturningPersonFunction returningPersonFunction)
         {
             try
             {
-                return await returningGuestFunction();
+                return await returningPersonFunction();
             }
             catch (NullPersonException nullPersonException)
             {
@@ -45,6 +47,28 @@ namespace xChanger.Core.Services.Foundations.Persons
             {
                 var failedPersonServiceException =
                     new FailedPersonServiceException(exception);
+
+                throw CreateAndLogServiceException(failedPersonServiceException);
+            }
+        }
+
+        private IQueryable<Person> TryCatch(ReturningPersonsFunction returningPersonsFunction)
+        {
+            try
+            {
+                return returningPersonsFunction();
+            }
+            catch (SqlException sqlException)
+            {
+                var failedPersonStorageException =
+                    new FailedPersonStorageException(sqlException);
+
+                throw CreateAndLogCriticalDependencyException(failedPersonStorageException);
+            }
+            catch (Exception serviceException)
+            {
+                var failedPersonServiceException =
+                    new FailedPersonServiceException(serviceException);
 
                 throw CreateAndLogServiceException(failedPersonServiceException);
             }
@@ -80,10 +104,10 @@ namespace xChanger.Core.Services.Foundations.Persons
 
         private PersonServiceException CreateAndLogServiceException(Xeption exception)
         {
-            var personSetviceException = new PersonServiceException(exception);
-            this.loggingBroker.LogError(personSetviceException);
+            var personServiceException = new PersonServiceException(exception);
+            this.loggingBroker.LogError(personServiceException);
 
-            return personSetviceException;
+            return personServiceException;
         }
     }
 }

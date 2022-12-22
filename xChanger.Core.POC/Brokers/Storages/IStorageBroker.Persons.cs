@@ -6,7 +6,7 @@ namespace xChanger.Core.Brokers.Storages
 {
     public partial interface IStorageBroker
     {
-        ValueTask<Person> SelectPersonAsync(Person person);
+        ValueTask<Person> InsertPersonAsync(Person person);
         IQueryable<Person> SelectAllPersons();
         IQueryable<Person> SelectAllPersonsWithPets();
         ValueTask<Person> UpdatePersonAsync(Person person);

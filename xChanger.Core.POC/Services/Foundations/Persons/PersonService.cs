@@ -24,11 +24,15 @@ namespace xChanger.Core.Services.Foundations.Persons
         TryCatch(async () =>
         {
             ValidatePersonOnAdd(person);
-            return await this.storageBroker.SelectPersonAsync(person);
+            return await this.storageBroker.InsertPersonAsync(person);
         });
 
         public IQueryable<Person> RetrieveAllPersons() =>
-            this.storageBroker.SelectAllPersons();
+        TryCatch(() =>
+        {
+            return this.storageBroker.SelectAllPersons();
+
+        });
 
         public IQueryable<Person> RetrieveAllPersonsWithPets() =>
             this.storageBroker.SelectAllPersonsWithPets();
